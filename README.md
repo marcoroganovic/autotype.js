@@ -12,7 +12,8 @@ const TodoItem = (props) => {
 autoType({
   content: text,
   element: preTag,
-  perChar: 150
+  perChar: 150,
+  cursor: "|"
 });
 
 ```
