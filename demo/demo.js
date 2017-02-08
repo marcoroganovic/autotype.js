@@ -44,7 +44,7 @@
   var $el = document.querySelector(".code");
 
   autoType({
-    content: text.trim(),
+    content: text,
     element: $el,
     perChar: 100
   });
