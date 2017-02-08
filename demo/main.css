@@ -8,10 +8,24 @@ body {
   font: normal 16px/150% "Helvetica Neue", sans-serif;
 }
 
-pre {
+code {
   font-family: monospace;
+  font-size: 13px;
 }
 
-.code {
-  font-size: 13px;
+.container {
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.row {
+  width: 100%;
+  overflow: hidden;
+  clear: both;
+}
+
+.half {
+  width: 50%;
+  float: left;
 }
