@@ -14,7 +14,7 @@
     return arg && arg.nodeType && (arg.nodeType === 1 || arg.nodeType === 11);
   }
 
-  function passesTypeCheck(content, duration, el) {
+  function passesTypeCheck(content, duration, el, cursor) {
     if(!isString(content)) {
       throw new TypeError("Content: Expected string, got " + typeof content);
     }
@@ -23,6 +23,10 @@
     }
     if(!isNode(el)) {
       throw new TypeError("Element: Expected DOM node, got " + typeof el);
+    }
+
+    if(!isString(cursor)) {
+      throw new TypeError("Cursor: Expected string, got " + typeof cusror);
     }
     return true;
   }
@@ -33,9 +37,9 @@
     return span;
   }
 
-  function getCursor(el) {
+  function getCursor(el, cursorLook) {
     var span = document.createElement("span");
-    var text = document.createTextNode("|");
+    var text = document.createTextNode(cursorLook);
     span.appendChild(text);
     el.appendChild(span);
     return span;
@@ -50,8 +54,8 @@
     el.appendChild(letter);
   }
 
-  function setupInterval(text, time, el) {
-    var i = 0, typeArea = getTypingArea(el), cursor = getCursor(el);
+  function setupInterval(text, time, el, crsr) {
+    var i = 0, typeArea = getTypingArea(el), cursor = getCursor(el, crsr);
 
     var interval = setInterval(function() {
       if(i < text.length) {
@@ -69,16 +73,18 @@
     var content = config.content;
     var duration = config.perChar;
     var element = config.element;
+    var cursor = config.cursor
     
-    if(passesTypeCheck(content, duration, element)) {
-      setupInterval(content, duration, element);
+    if(passesTypeCheck(content, duration, element, cursor)) {
+      setupInterval(content, duration, element, cursor);
     }
   }
 
   // autoType({
     // content: text,
     // element: document.querySelector(".code"),
-    // perChar: 100
+    // perChar: 100,
+    // cursor: "|"
   // });
 
   // expose function

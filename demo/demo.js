@@ -46,7 +46,8 @@
   autoType({
     content: text,
     element: $el,
-    perChar: 100
+    perChar: 100,
+    cursor: "_"
   });
   
 
