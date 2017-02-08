@@ -29,7 +29,8 @@
 
   // define interval as global so that we can clear it
   function appendLetter(el, char) {
-    el.textContent += char;
+    var letter = document.createTextNode(char);
+    el.appendChild(letter);
   }
 
   function setupInterval(text, time, el) {
