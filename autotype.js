@@ -51,17 +51,16 @@
   }
 
   function setupInterval(text, time, el) {
-    var i = 0;
-    var typeArea = getTypingArea(el);
-    var cursor = getCursor(el);
+    var i = 0, typeArea = getTypingArea(el), cursor = getCursor(el);
+
     var interval = setInterval(function() {
       if(i < text.length) {
-        appendLetter(typeArea, text[i]);
+        appendLetter(typeArea, text[i]); 
         toggleCursor(cursor);
         i++;
       } else {
         clearInterval(interval);
-        i = 0;
+        el.removeChild(cursor);
       }
     }, time);
   }
