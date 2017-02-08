@@ -1,3 +1,7 @@
+## Tiny library for simulating keyboard typing 
+
+See demo [here](http://autotype.surge.sh/)
+
 ### Sample usage
 
 ```javascript
