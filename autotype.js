@@ -27,7 +27,24 @@
     return true;
   }
 
-  // define interval as global so that we can clear it
+  function getTypingArea(el) {
+    var span = document.createElement("span");
+    el.appendChild(span);
+    return span;
+  }
+
+  function getCursor(el) {
+    var span = document.createElement("span");
+    var text = document.createTextNode("|");
+    span.appendChild(text);
+    el.appendChild(span);
+    return span;
+  }
+
+  function toggleCursor(el) {
+    el.style.display = el.style.display === "none" ? "" : "none";
+  }
+
   function appendLetter(el, char) {
     var letter = document.createTextNode(char);
     el.appendChild(letter);
@@ -35,9 +52,12 @@
 
   function setupInterval(text, time, el) {
     var i = 0;
+    var typeArea = getTypingArea(el);
+    var cursor = getCursor(el);
     var interval = setInterval(function() {
       if(i < text.length) {
-        appendLetter(el, text[i]);
+        appendLetter(typeArea, text[i]);
+        toggleCursor(cursor);
         i++;
       } else {
         clearInterval(interval);
