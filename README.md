@@ -5,7 +5,7 @@ var preTag = document.querySelector("pre");
 
 var text = `
 const TodoItem = (props) => {
-  return <li data-id="{props.id}">{state.taskName}</li>;
+  return <li data-id="{props.id}">{props.taskName}</li>;
 }
 `;
 
