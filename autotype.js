@@ -73,7 +73,7 @@
     var content = config.content;
     var duration = config.perChar;
     var element = config.element;
-    var cursor = config.cursor
+    var cursor = config.cursor || "_";
     
     if(passesTypeCheck(content, duration, element, cursor)) {
       setupInterval(content, duration, element, cursor);
